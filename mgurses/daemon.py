@@ -16,14 +16,14 @@ def get_command(sock):
                 buf = buf + more
 
 def do(cmd):
-    act, arg = cmd.split(' ', 1)
+    import commands
+    words = cmd.split(' ', 1)
+    act = words[0]
+    args = words[1:]
     try:
-        globals()['do_' + act](arg)
+        getattr(commands, act)(args)
     except KeyError:
         log.warning('No such action: ' + act)
-
-def do_add(arg):
-    log.info(arg)
 
 def main(sockfile):
     log.basicConfig(filename='/tmp/mgd.log', level=log.INFO)

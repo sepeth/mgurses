@@ -9,6 +9,10 @@ def main():
         time.sleep(1)
     sock = unix_socket()
     sock.connect(sockfile)
+    # sock.send("add /home/sepeth/music/kotor1/01_-_startup_screen.mp3\n")
+    # sock.send("add /home/sepeth/music/kotor1/02_-_main_theme.mp3\n")
+    # sock.send("add /home/sepeth/music/kotor1/03_-_the_old_republic.mp3\n")
+    # sock.send("play\n")
 
 if __name__ == '__main__':
     main()
